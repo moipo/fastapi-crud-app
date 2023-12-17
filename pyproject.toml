@@ -1,3 +1,6 @@
+[project]
+requires-python = ">=3.10"
+
 [tool.poetry]
 name = "fastapi-crud-app"
 version = "0.1.0"
@@ -5,11 +8,24 @@ description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+pytest-mock = "*"
+ruff = "^0.1.8"
+
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = "^0.105.0"
 sqlalchemy = "^2.0.23"
 
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+extend-select = [
+    "E501",
+    "UP",  # pyupgrade
+]
 
 [build-system]
 requires = ["poetry-core"]
