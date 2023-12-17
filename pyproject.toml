@@ -12,6 +12,7 @@ readme = "README.md"
 pytest = "^7.4.3"
 pytest-mock = "*"
 ruff = "^0.1.8"
+mypy = "^1.7.1"
 
 [tool.poetry.dependencies]
 python = "^3.10"
