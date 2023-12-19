@@ -20,6 +20,6 @@ async def get_task(task_id: int) -> dict:
     return {"task_id": task_id}
 
 
-@app.post("/create_task/{task_id}")
-async def create_task(task_id: Task) -> dict:
-    return {"task_id": task_id}
+@app.post("/create_task")
+async def create_task(task: Task) -> dict:
+    return {"task": task.title}
