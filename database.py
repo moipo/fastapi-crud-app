@@ -1,10 +1,14 @@
-from sqlalchemy import create_engine, text
-
+from sqlalchemy import create_engine, insert, Insert, Compiled
+from tables import tasks
 engine = create_engine(
     "postgresql+psycopg2://postgres:1234@localhost:5434/todoappdb",
+    connect_args={"options": "-c timezone=utc"},
     echo=True,
 )
 
-with engine.connect() as conn:
-    result = conn.execute(text("select * from tasks;"))
-    print(result.all())
+stmt: Insert = insert(tasks).values(title='titile', description='description')
+compiled: Compiled = stmt.compile()
+params: dict = compiled.params
+
+
+
